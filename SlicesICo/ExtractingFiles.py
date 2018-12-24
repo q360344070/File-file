@@ -21,11 +21,14 @@ def gci(filepath):
 			gci(fi_d)
 		else:
 			file=os.path.join(filepath,fi_d)
-			_,extensionName=os.path.splitext(file)
+			fileName,extensionName=os.path.splitext(file)
 			TargetDirectory=path+extensionName+"\\"
+			newTargetDirectory=TargetDirectory+os.path.basename(fileName)+extensionName
 			if not os.path.exists(TargetDirectory):
 				os.mkdir(TargetDirectory)
 			shutil.copy(file,TargetDirectory)
+			# path = pathlib.Path("path/file")
+			# path.is_file()
 			# os.remove(file)
 gci(path)
 print("完成")
